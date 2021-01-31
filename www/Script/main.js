@@ -37,3 +37,5 @@ $(document).ready(function(){
 
     $("#editPopis").hide();$("#editCenik").hide();$("#editGalerie").hide();$("#loginDiv").hide();
 });
+
+cosnole.log("Ahoj");
