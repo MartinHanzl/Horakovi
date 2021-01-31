@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url("../Photos/cool-background.svg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.nav {
+    width: 100%;
+    background-color: #457B9D;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 10000;
+}
+
+.bars {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    background-color: #24416B;
+    padding: 5%;
+    text-align: right;
+    justify-content: space-around;
+    box-shadow: 0px 0px 20px black;
+    color: white;
+}
+
+.fa-bars {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5%;
+    text-align: center;
+}
+
+nav span {
+    display: none;
+}
+
+nav i {
+    width: 15%;
+    text-align: center;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    nav span {
+        display: block;
+        margin-top: 10%;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .nav {
+        flex-direction: row;
+        width: 100%;
+        background-color: #24416B;
+        box-shadow: 0px 0px 20px black;
+        position: unset;
+    }
+
+    .bars {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav i {
+        width: unset;
+        font-size: unset;
+    }
+
+    nav span {
+        margin-top: 3%;
+    }
+
+    nav a {
+        display: inline-block;
+        width: 20%;
+        padding: 1.5%;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+        background-color: #835034;
+    }
+}
+
+.main {
+    padding: 5%;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20%;
+    background-color: #457B9D;
+    padding: 3%;
+    box-shadow: 10px 10px 5px #24416B;
+    color: white;
+}
+
+.nadpis {
+    text-align: center;
+    color: #707070;
+}
+
+.article p {
+    text-align: justify;
+    color: #707070;
+}
+
+.article {
+    margin-bottom: 50px;
+}
+
+.note-editor, .note-frame {
+    width: 100%;
+    margin-left: 0;
+}
+
+form {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.note-toolbar {
+    background-color: #24416B;
+}
+
+.button {
+    margin-top: 5%;
+    width: 35%;
+    padding: 3%;
+    border: none;
+    background-color: #7CC8CB;
+    border-radius: 10px;
+    background: rgb(91,11,18);
+    background: linear-gradient(180deg, rgba(91,11,18,1) 0%, rgba(163,20,32,1) 100%);
+    color: white;
+}
+
+
+@media screen and (min-width: 992px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        margin-top: 0;
+        padding: 2%;
+    }
+
+    .note-editor, .note-frame {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .button {
+        margin-top: 2.5%;
+        width: 15%;
+        padding: 2%;
+        cursor: pointer;
+    }
+}

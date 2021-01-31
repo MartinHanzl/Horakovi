@@ -1,0 +1,97 @@
+{block content}
+    <div class="main">
+            <div class="section" id="popis">
+                <div>
+                    <h2>Popis apartmánu{if $user->isLoggedIn()}<a id="edit-popis" style="cursor: pointer"><i class="fas fa-edit"></i></a>{/if}</h2>
+                    {foreach $popis as $p}
+                        <p>{$p->Popis_Text|noescape}</p>
+                    {/foreach}
+                </div>
+                    <img src="{$basePath}/Photos/20181115083244_ly07Sg_full.jpg">
+            </div>
+        <div class="icons">
+            <div>
+                <i class="fas fa-users"></i>
+                <span>Až 4 osoby</span>
+            </div>
+            <div>
+                <i class="fas fa-wifi"></i>
+                <span>Wifi zdarma</span>
+            </div>
+            <div>
+                <i class="fas fa-utensils"></i>
+                <span>Restaurace</span>
+            </div>
+            <div>
+                <i class="fas fa-parking"></i>
+                <span>Parkování</span>
+            </div>
+            <div>
+                <i class="fas fa-spa"></i>
+                <span>Wellness</span>
+            </div>
+        </div>
+        <h2>Fotogalerie{if $user->isLoggedIn()}<a id="edit-galerie"><i class="fas fa-edit" style="cursor: pointer"></i></a>{/if}</h2>
+            <div class="gallery" id="galerie">
+                {foreach $galerie as $g}
+                    {if $user->isLoggedIn()}
+                        <div style="background-image: url('{$basePath}/Images/{$g->nazev}')" class="photo-div">
+                            <a href="{$basePath}/Images/{$g->nazev}" data-lightbox="foto"><i class="fas fa-eye"></i></a>
+                                <a n:href="Homepage:vymazFoto $g->fotoID"><i class="fas fa-trash"></i></a>
+                        </div>
+                        {else}
+                        <a href="{$basePath}/Images/{$g->nazev}" data-lightbox="foto"><img src="{$basePath}/Images/{$g->nazev}"></a>
+                    {/if}
+                {/foreach}
+            </div>
+        <div class="tariff" id="cenik">
+            <h1>Ceník{if $user->isLoggedIn()}<a id="edit-cenik" style="cursor: pointer"><i class="fas fa-edit edit"></i></a>{/if}</h1>
+                <table>
+                    {foreach $cenik as $c}
+                        <tr>
+                            <td><p>{$c->Cenik_Text|noescape}</p></td>
+                            <td class="price"><p>{$c->Cena} Kč/noc</p></td>
+                            {if $user->isLoggedIn()}
+                                <td class=""><a n:href="Homepage:vymazCenu $c->cenikID"><i class="fas fa-trash"></i></a></td>
+                            {/if}
+                        </tr>
+                    {/foreach}
+                </table>
+        </div>
+        <h2>Aktivity v okolí apartmánu</h2>
+        <div class="activities" id="aktivity">
+            <div class="activity">
+                <div class="activity-img" style="background-image: url('https://skiricky.cz/wp-content/uploads/2020/11/homepage-back-1-scaled.jpg')"></div>
+                <h3>Skiareál Říčky</h3>
+                <p>Ski centrum Říčky v Orlických horách nabízí pro všechny milovníky zimních sportů nejlepší podmínky v celých Orlických horách. Areálu s čtyřsedačkovou lanovkou je vhodný jak pro rodiny s dětmi, kterým nabízí lyžařskou školu, ale také pro zdatné lyžaře, kteří mohou využít například snowpark.</p>
+                <a href="https://skiricky.cz/" target="_blank">Více info</a>
+            </div>
+            <div class="activity">
+                <div class="activity-img" style="background-image: url('https://skiricky.cz/wp-content/uploads/2020/11/homepage-back-1-scaled.jpg')"></div>
+                <h3>Skiareál Říčky</h3>
+                <p>Ski centrum Říčky v Orlických horách nabízí pro všechny milovníky zimních sportů nejlepší podmínky v celých Orlických horách. Areálu s čtyřsedačkovou lanovkou je vhodný jak pro rodiny s dětmi, kterým nabízí lyžařskou školu, ale také pro zdatné lyžaře, kteří mohou využít například snowpark.</p>
+                <a href="https://skiricky.cz/" target="_blank">Více info</a>
+            </div>
+            <div class="activity">
+                <div class="activity-img" style="background-image: url('https://skiricky.cz/wp-content/uploads/2020/11/homepage-back-1-scaled.jpg')"></div>
+                <h3>Skiareál Říčky</h3>
+                <p>Ski centrum Říčky v Orlických horách nabízí pro všechny milovníky zimních sportů nejlepší podmínky v celých Orlických horách. Areálu s čtyřsedačkovou lanovkou je vhodný jak pro rodiny s dětmi, kterým nabízí lyžařskou školu, ale také pro zdatné lyžaře, kteří mohou využít například snowpark.</p>
+                <a href="https://skiricky.cz/" target="_blank">Více info</a>
+            </div>
+        </div>
+        <div class="map" id="kontakty">
+            <div class="kontakty">
+                <div>
+                    <h3>Kontaktní informace</h3>
+                    <i class="fas fa-phone"></i><span>+420 123 456 789</span>
+                    <br>
+                    <i class="fas fa-at"></i><span>example@example.cz</span>
+                    <br>
+                    <i class="fas fa-map-marked-alt"></i><span>Říčky v Orlických horách 254, 517 61 Říčky v Orlických horách</span>
+                </div>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40849.051091927475!2d16.43420992353509!3d50.215992837488095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0976593743b9%3A0x400af0f6615c680!2zNTE3IDYxIMWYw63EjWt5IHYgT3JsaWNrw71jaCBob3LDoWNo!5e0!3m2!1scs!2scz!4v1611399558462!5m2!1scs!2scz" width="600" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
+
+{/block}

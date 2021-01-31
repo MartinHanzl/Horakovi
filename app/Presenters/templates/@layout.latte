@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="{$basePath}/Styles/basic.css">
+	<link rel="stylesheet" href="{$basePath}/Styles/lightbox.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.tiny.cloud/1/axq3hl56t60ayh4h8zt4x2w6tkdte67bol78ko5lzmj0frc2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script src="https://kit.fontawesome.com/5c13d17743.js" crossorigin="anonymous"></script>
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Apartmán Říčky</title>
+</head>
+
+<body>
+	<div class="nav">
+		<div class="bars">
+			<h2>Apartmán Říčky</h2>
+			<i class="fas fa-bars" id="carky"></i>
+		</div>
+		<nav id="nav">
+			<a href="#popis""><span>Popis</span></a>
+			<a href="#aktivity"><span>Aktivity</span></a>
+			<a href="#galerie"><span>Fotogalerie</span></a>
+			<a href="#cenik"><span>Ceník</span></a>
+			<a href="#kontakty"><span>Kontakty</span></a>
+			{if $user->isLoggedIn()}
+				<a n:href="Homepage:odhlas"><span>Odhlásit se</span></a>
+				{else}
+				<a href="#" id="login"><span>Přihlášení</span></a>
+			{/if}
+		</nav>
+	</div>
+	<header>
+		<div class="over">
+			<div>
+				<h1>Apartmán Říčky</h1>
+				<p>Místo pro váš spokojený odpočinek, které si zamilujete!</p>
+				<a href="#" class="res"><span>Rezervace</span></a>
+			</div>
+		</div>
+	</header>
+	{include forms.latte}
+	{include content}
+		<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+		<script src="{$basePath}/Script/main.js"></script>
+		<script src="{$basePath}/Script/lightbox-plus-jquery.min.js"></script>
+	<script>
+		tinymce.init({
+			selector: 'textarea',
+			plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+			toolbar_mode: 'floating',
+		});
+	</script>
+</body>
+</html>
